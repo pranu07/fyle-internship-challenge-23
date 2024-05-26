@@ -1,5 +1,57 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
+<header class="header">
+  <div class="container">
+    <input type="text" #usernameInput placeholder="Enter Username" class="search-bar">
+    <button class="search-button" (click)="searchUser(usernameInput.value)">Search</button>
+  </div>
+</header>
+
+<div class="content">
+  <div *ngIf="!repos.length && !isSearching && !noRepos" class="prompt">
+    Enter GitHub username to display repos.
+  </div>
+
+  <div *ngIf="!repos.length && !isSearching && noRepos" class="prompt">
+    No repos to be displayed!
+  </div>
+
+  <div *ngIf="!repos.length && isSearching" class="prompt">
+    Searching...
+  </div>
+
+  <div *ngIf="repos.length" class="pagination-controls">
+    <label for="pageSize">Items per page:</label>
+    <select id="pageSize" [(ngModel)]="perPage" (change)="changePageSize()">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+
+  <div *ngIf="repos.length" class="card-container">
+    <div *ngFor="let repo of repos; let i = index">
+      <div *ngIf="i % 2 === 0" class="card-row">
+        <div class="card">
+          <h1><strong class="repo-name">{{repo.name}}</strong></h1>
+          <p>{{repo.description}}</p>
+          <div *ngIf="languages[i]" class="languages-container">
+            <span *ngFor="let language of languages[i].languages" class="language-box">{{ language }}</span>
+          </div>
+        </div>
+        <div *ngIf="i + 1 < repos.length" class="card">
+          <h1><strong class="repo-name">{{repos[i + 1].name}}</strong></h1>
+          <p>{{repos[i + 1].description}}</p>
+          <div *ngIf="languages[i + 1]" class="languages-container">
+            <span *ngFor="let language of languages[i + 1].languages" class="language-box">{{ language }}</span>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+  <div *ngIf="repos.length" class="pagination-controls">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage <= 1">Previous</button>
+    <span>Page {{currentPage}}</span>
+    <button (click)="goToPage(currentPage + 1)" [disabled]="!hasMoreRepos">Next</button>
   </div>
 </div>

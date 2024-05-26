@@ -1,0 +1,124 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 6px -6px #222;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 350px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #ddd;
+}
+
+.content {
+  padding: 20px;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pagination-controls label {
+  margin-right: 10px;
+}
+
+.pagination-controls select {
+  margin-right: 20px;
+}
+
+.pagination-controls button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination-controls span {
+  margin: 0 10px;
+}
+
+.card-container {
+  padding: 20px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 48%;
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.repo-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: blue;
+}
+
+.languages-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.language-box {
+  padding: 5px 10px;
+  background-color: blue;
+  color: white;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.prompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  font-size: 1.5em;
+  color: #333;
+  text-align: center;
+}
